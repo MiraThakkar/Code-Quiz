@@ -1,0 +1,17 @@
+* {
+    
+}
+
+.container {
+    width: 600px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 50px 50px 50px 50px;
+    text-align: center;
+}
+
+.btn {
+    margin-top : 20px;
+    color: white;
+}

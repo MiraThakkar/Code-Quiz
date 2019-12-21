@@ -18,18 +18,17 @@
     <div class = "container">
 
       <div class= "row">
-
+        <!--Home Page-->
         <div  id = "home" class = "col-md-12">
           <h1>Coding Quiz Challenge</h1>
           <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score time by ten seconds!</p>
           <br>  
           <button id = "start" class = "btn">Start Quiz</button>
         </div>
-    
       </div>
 
-      <div class= "row">
-
+      <div class= "row"> 
+        <!-- Quiz Page-->
           <div  id = "quiz" class = "col-md-12">
             <h1 id = "question">Question</h1>
             <div id = "choice-container">
@@ -38,32 +37,34 @@
                 <button id="choice-3" class="btn option" data-number = "3" value="choice-3"><span>Choice 3</span></button>
                 <button id="choice-4" class="btn option" data-number = "4" value="choice-4"><span>Choice 4</span></button>
             </div>
-            <div id = "result">
+            <div >
+              <p id = "result"></p>
             </div>
+
           </div>
       
         </div>
 
       <div class = "row">
+        <!--Score Page-->
         <div  id = "scorecard" class = "col-md-12 ">
             <h1>Your Score is: <span id = "finalScore">Score</span></h1>
             <form class = "form-inline">
                 <div class="form-group mb-2">
                     <input type="text" class="form-control-plaintext" id="initial" value="Enter initial">
                   </div>
-                  <div class="form-group mx-sm-3 mb-2">
-                    <label for="inputInitial" class="sr-only">Password</label>
-                    <input type="text" class="form-control" id="inputInitial" placeholder="Initial">
+                  <div class="form-group mx-sm-3 mb-2">                    
+                    <input type="text" id="inputInitial" placeholder="Initial">
                   </div>
-                  <button type="submit" class="btn  mb-2">Submit</button>
+                  <button  id = "submit" type="button" class="btn  mb-2">Submit</button>
             </form>
         </div>
 
       </div>
-
     </div>
     
-  <script src= "script.js"></script>
+  
   <script src= "questions.js"></script>  
+  <script src= "script.js"></script>
 </body>
 </html>

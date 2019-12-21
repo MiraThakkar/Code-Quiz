@@ -1,18 +1,20 @@
-* {
-    
-}
-
 .container {
     width: 800px;
     height: 500px;
     margin-top: 40px;
     background-color: #ffffff;
-    padding: 50px 50px 10px 50px;*
+    padding: 50px 50px 10px 50px;
     /*border: 1px solid #eceff1;
     border-radius: 8px;
     box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
       rgba(60, 64, 67, 0.15) 0 1px 3px 1px;*/
 
+}
+
+.navbar {
+
+    background-color: #ffffff !important;
+    
 }
 
 .btn {
@@ -32,10 +34,12 @@
 h1 {
     margin-top: 10px;
     padding: 10px 0px 10px 0px;
+    font-family: sans-serif;
 }
 
 p {
     margin-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #home {

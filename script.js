@@ -6,82 +6,23 @@ var questionEl = $("#question");
 var choice = $(".option");
 var counter = 120;
 var int = 0;
+var inputInitial = $("#inputInitial");
+var submitBtn = $("#submit");
 var finalScoreEl = document.querySelector("#finalScore");
-// var availableQuestions = [];
-//alert(finalScoreEl.textContent);
-
-
-//questions array
-var questions = [
-  {
-    question: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts"
-  },
-  {
-    question: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses"
-  },
-  
-  {
-    question: "Inside which HTML element do we put the JavaScript?",
-    choices: ["scripting", "js", "javascript", "script"],
-    answer: "script"
-  },
-
-  {
-    question: " Which of the following is not a reserved word in JavaScript?",
-    choices: ["interface", "throws", "program", "short"],
-    answer: "program"
-  },
-
-  {
-    question: "Which of the following is the correct syntax to display “GeeksforGeeks” in an alert box using JavaScript?",
-    choices: ["alertbox(“GeeksforGeeks”)", "msg(“GeeksforGeeks”);", "msgbox(“GeeksforGeeks”);", "alert(“GeeksforGeeks”);"],
-    answer: "alert(“GeeksforGeeks”);"
-  },
-  {
-    question: "What does HTML stand for?",
-    choices: ["Home Tool Markup Language", "Hyper Text Markup Language", "Hyperlinks and Text Markup Language", "Hyper Text Makeup Language"],
-    answer: "Hyper Text Markup Language"
-  },
-  {
-    question: "Which HTML attribute is used to define inline styles?",
-    choices: ["font", "style", "class", "script"],
-    answer: "style"
-  },
-  {
-    question: "Which CSS property is used to change the text color of an element?",
-    choices: ["color", "text-color", "fgcolor", "font-color"],
-    answer: "color"
-  },
-
-  {
-    question: "Which property is used to change the left margin of an element",
-    choices: ["margin-left", "padding-left", "margin", "indent"],
-    answer: "margin-left"
-  },
-  
-  {
-    question: "What is the default value of the position property?",
-    choices: ["fixed", "static", "relative", "absolute"],
-    answer: "static"
-  },
-    
-];
-  
 var lastQuestionIndex = questions.length - 1;
 var qustionIndex = 0;
- 
 
+console.log(inputInitial);
+ inputInitial.innerHTML = "Mira";
 
-//set counter function 
+ console.log(inputInitial.innerHTML);
+
+//setCounterText to set the text of the counter 
 function setCounterText() {
   countEl.textContent = counter;
 };
 
-//Start button even listner
+//Start button event listner to start the quiz when user clicks on the "Start Quiz" button
 startBtn.on("click", function(){
 
   $("#home").hide();
@@ -100,20 +41,15 @@ startBtn.on("click", function(){
           
       }
     }, 1000)
-    // availableQuestions = [...questions];
-    renderQuestion();
+    
+  renderQuestion();
     
 });
-
-
-  
 
 
 
 function renderQuestion() {
 
-
-  
   questionIndex = Math.floor(Math.random() * questions.length);
   //alert(questionIndex);
   questionEl.text(questions[questionIndex].question);
@@ -121,38 +57,39 @@ function renderQuestion() {
     choice[i].innerHTML = questions[questionIndex].choices[i];
   }
 
-  
-  console.log(questions);
+ // console.log(questions);
 };
+
+
+//this function is invoked when user clicks the option
 
 $(".option").on("click", function(event){
   
   var userAnswer = event.target.textContent;
-  //alert(userAnswer);
-  //alert(questions[questionIndex].answer);
-  var result = $("<p>");
+  var resultEl = document.querySelector("#result");
   if(userAnswer == questions[questionIndex].answer){    
-    $("#quiz").append("<hr>");
-    result.text((11-questions.length) + ":" + questions[questionIndex].question + " :Correct!")
-    $("#quiz").append(result); 
+    //$("#quiz").append("<hr>");
+    //result.text("Correct!");
+    //$("#quiz").append(result);
+    //resultE1.show();
+    resultEl.innerHTML = "Correct!";
+    //resultE1.hide();
   }
   else{
     
-    $("#quiz").append("<hr>");
-    result.text((11-questions.length) + ":" + questions[questionIndex].question + " :Wrong!")
+    //$("#quiz").append("<hr>");
+    //result.text(":Wrong!")
     counter= counter-10;
     setCounterText();
-    $("#quiz").append(result);
+    //$("#quiz").append(result);
+    resultEl.innerHTML = "Wrong";
+    //resultE1.fadeOut(250);
   }
   questions.splice(questionIndex, 1);
-  //alert(questions.length)
   
   if (questions.length > 0) {
     renderQuestion ();  
   } else {
-    //alert("no more questions");
-    //Stop the timer
-    //Display Results
     endQuiz();
   }
   
@@ -165,10 +102,35 @@ function endQuiz(){
   finalScoreEl.textContent = counter;
   clearInterval(int);
   $("#quiz").hide();
-  counter=0;
+  //counter=0;
   $("#scorecard").show();
   
 }
+
+//Score high score into local storage
+
+
+submitBtn.on("click", function(event){
+  event.preventDefault();
+  var inElement = document.querySelector("#inputInitial").value;
+  console.log(inElement);
+  //Store in local storage
+  localStorage.setItem("Score", counter);
+  localStorage.setItem("Initial",inElement);
+  
+  //get from local storage
+  var StoredInitial = localStorage.getItem("Initial");
+  var StoredScore = localStorage.getItem("Score"); 
+  
+  
+  //alert(StoredInitial + StoredScore);
+});
+
+
+
+
+
+
 
 
 

@@ -1,4 +1,128 @@
-var mainDiv = $(".container");
+
+var startBtn = $("#start");
+var countEl = document.querySelector("#count");
+var countE2 = $("#count");
+var questionEl = $("#question");
+var choice = $(".option");
+
+var counter = 10;
+
+
+//questions array
+var questions = [
+    {
+      question: "Commonly used data types DO NOT include:",
+      choices: ["strings", "booleans", "alerts", "numbers"],
+      answer: "alerts"
+    },
+    {
+      question: "The condition in an if / else statement is enclosed within ____.",
+      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+      answer: "parentheses"
+    },
+    
+  ];
+  
+  var lastQuestionIndex = questions.length - 1;
+  var qustionIndex = 0;
+
+
+  //set counter function 
+function setCounterText() {
+  countEl.textContent = counter;
+};
+
+//Start button even listner
+startBtn.on("click", function(){
+
+  $("#home").hide();
+  $("#quiz").show();
+  var int = setInterval(function(){
+      setCounterText();
+      counter--;
+      if (counter  < 0){
+          clearInterval(int);
+          $("#quiz").hide();
+          $("#scorecard").show();
+      }
+    }, 1000)
+
+    renderQuestion();
+    
+  })
+
+
+  
+
+
+
+  function renderQuestion() {
+
+    questionIndex = Math.floor(Math.random()*questions.length);
+    questionEl.text(questions[questionIndex].question);
+    for(i=0; i< choice.length; i++){
+
+      choice[i].innerHTML = questions[questionIndex].choices[i];
+    
+    }
+
+    questions.slice(questionIndex, 1);
+
+  
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//soulution to add home screen using DOM
+/*var mainDiv = $(".container");
 var header = $("<h1>");
 var pEl = $("<p1>");
 var startBtn = $("<button>");
@@ -38,6 +162,6 @@ startBtn.on("click", function(){
       }, 1000)
 
       
-    });
+    });*/
     
 

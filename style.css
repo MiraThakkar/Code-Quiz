@@ -58,7 +58,7 @@ p {
     display: none;
 }
 
-#option.btn {
+.option.btn {
     width: 50%;
     text-align: start;
 }

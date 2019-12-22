@@ -66,3 +66,34 @@ p {
     width: 50%;
     text-align: start;
 }
+
+#highscore {
+    display:none;
+}
+
+@media (max-width: 576px){
+    .container{
+        padding: 4rem 2rem;
+        margin: auto;
+    }
+
+    #quiz, #scorecard, #home{
+        height:auto;
+        width:50%;
+        padding:20px;
+        
+    }
+
+   h1{
+       margin:auto;
+       text-align: center;
+       font-size: 30px;
+   }
+
+
+   option.btn {
+       text-align: center;
+   }
+  
+
+}

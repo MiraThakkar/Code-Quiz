@@ -117,13 +117,24 @@ submitBtn.on("click", function(event){
   //Store in local storage
   localStorage.setItem("Score", counter);
   localStorage.setItem("Initial",inElement);
+  $("#scorecard").hide();
+  $("#highscore").show();
+  
   
   //get from local storage
-  var StoredInitial = localStorage.getItem("Initial");
-  var StoredScore = localStorage.getItem("Score"); 
+ 
+   
   
   
   //alert(StoredInitial + StoredScore);
+});
+
+$(".showhighscore").on("click", function(){
+  alert("navbar clicked")
+
+  var StoredInitial = localStorage.getItem("Initial");
+  var StoredScore = localStorage.getItem("Score");
+
 });
 
 

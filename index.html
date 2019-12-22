@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light showhighscore">
         <a class="navbar-link" href="#">View Highcores</a>
         <h5>Time:<span id ="count">0</span></h5>
     </nav>
@@ -58,6 +58,12 @@
                   </div>
                   <button  id = "submit" type="button" class="btn  mb-2">Submit</button>
             </form>
+
+        </div>
+        <div id= "highscore" class = "col-md-12 ">
+          <h2 id = "highscorevalue">Initial: <span id="hsvalue">High Score</span></h2>
+              <button  id = "reset" type="button" class="btn mb-2">Go Back</button>
+              <button  type="button" class="btn mb-2 showhighscore">High Score</button>
         </div>
 
       </div>
